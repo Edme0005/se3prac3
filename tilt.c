@@ -20,17 +20,18 @@ int tilt_line_left(int length,int *line)
   }
   
   // combine tiles as required
-  for (i = 0; i < length-1; i++) {
+  for (i = 0; i < length; i++) {
   	if (line[i] == line[i+1] && line[i] != 0) {
   		line[i] += line[i];
   		//slide values down
   		int j;
-  		for (j = i+1; j < length || line[j+1] != 0; j++) {
+  		for (j = i+1; j < length; j++) {
   			line[j] = line[j+1];
   		}
   		line[j] = 0;
   	}
   }
+  line[i] = 0;
   
   return 0;
 }
