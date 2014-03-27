@@ -10,7 +10,7 @@ all:	2048
 2048:	main.o $(OBJS)
 	gcc -Wall -g -o 2048 main.o $(OBJS)
 
-test:	test.o
+test:	test.o $(OBJS)
 	gcc -Wall -g -o test test.o $(OBJS)
 
 clean:
