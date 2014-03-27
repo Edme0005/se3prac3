@@ -8,13 +8,17 @@ int tilt_line_left(int length,int *line)
 
   // slide tiles to the left
   int next = 0;
-  for (int i = 0; i < length; i++) {
+  int i;
+  for (i = 0; i < length; i++) {
   	if (line[i] != 0) {
-  		line[next] = line[i];
-  		line[i] = 0;
+  		if ( i != next) {
+  			line[next] = line[i];
+  			line[i] = 0;
+  		}
   		next++;
   	}
   }
+   
 
 	/*
   // combine tiles as required
