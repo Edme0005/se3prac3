@@ -39,6 +39,7 @@ int test_tilt_left()
   e|=ttl_vector(0,0,0,1,"Value on right shifts to left edge after shift",1,0,0,0);
   e|=ttl_vector(0,0,1,0,"Value in middle shifts to left edge after shift",1,0,0,0);
   e|=ttl_vector(1,2,4,8,"Distinct values don't combine",1,2,4,8);
+  e|=ttl_vector(8,4,2,1,"Distinct values don't combine",8,4,2,1);
   e|=ttl_vector(1,1,1,1,"Combinations don't cascade",2,2,0,0);
   e|=ttl_vector(1,2,2,1,"Combines some.",1,4,1,0);
   e|=ttl_vector(4,2,2,0,"Checks order of adding",4,4,0,0);
@@ -46,6 +47,7 @@ int test_tilt_left()
   e|=ttl_vector(0,0,1,1,"Values are combined on left",2,0,0,0);
   e|=ttl_vector(4,0,1,1,"Values combine with correct values",4,2,0,0);
   e|=ttl_vector(2,0,1,1,"Values don't cascade",2,2,0,0);
+  e|=ttl_vector(4,4,0,1,"Combines some, shifts 1",8,1,0,0);
   return e;
 }
 
