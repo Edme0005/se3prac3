@@ -43,9 +43,9 @@ int test_tilt_left()
   e|=ttl_vector(1,2,2,1,"Combines some.",1,4,1,0);
   e|=ttl_vector(4,2,2,0,"Checks order of adding",4,4,0,0);
   e|=ttl_vector(2,2,2,0,"Checks order of adding",4,2,0,0);
-  e|=ttl_vector(0,0,1,1,NULL,2,0,0,0);
-  e|=ttl_vector(4,0,1,1,NULL,4,2,0,0);
-  e|=ttl_vector(2,0,1,1,NULL,2,2,0,0);
+  e|=ttl_vector(0,0,1,1,"Values are combined on left",2,0,0,0);
+  e|=ttl_vector(4,0,1,1,"Values combine with correct values",4,2,0,0);
+  e|=ttl_vector(2,0,1,1,"Values don't cascade",2,2,0,0);
   return e;
 }
 
