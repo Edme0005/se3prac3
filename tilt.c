@@ -18,19 +18,19 @@ int tilt_line_left(int length,int *line)
   		next++;
   	}
   }
-   
-
-	/*
+  
   // combine tiles as required
-  for (int i = 0; i < length; i++) {
-  	if (line[i] == line[i+1]) {
-  		
+  for (i = 0; i < length; i++) {
+  	if (line[i] == line[i+1] && line[i] != 0) {
+  		line[i] += line[i];
   		//slide values down
-  		for (int j = i+1; j < length | line[j+1] != 0; j++) {
-  			line[j] = line[j+1]
+  		int j;
+  		for (j = i+1; j < length || line[j+1] != 0; j++) {
+  			line[j] = line[j+1];
   		}
+  		line[j] = 0;
   	}
   }
-  */
+  
   return 0;
 }
