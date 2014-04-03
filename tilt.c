@@ -35,3 +35,14 @@ int tilt_line_left(int length,int *line)
   
   return 0;
 }
+
+int tilt_line_right(int length,int *line) {
+	int lineRev[4];
+	int i;
+	for(i = 0; i < length; i++) {
+		lineRev[i] = line[4-i];
+	}
+	tilt_line_left(length, lineRev);
+	line = lineRev;
+	return 0;
+}
