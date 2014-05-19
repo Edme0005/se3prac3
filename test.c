@@ -223,22 +223,22 @@ int test_rotate_90()
 	int e=0;
 	e|=rotate_board2_90(1,0,
 	                    0,0,
-	                    "rotate right",
+	                    "rotate 2x2 board 90",
 	                    0,1,
 	                    0,0);
 	e|=rotate_board2_90(0,1,
 	                    0,0,
-	                    "rotate right",
+	                    "rotate 2x2 board 90",
 	                    0,0,
 	                    0,1);
 	e|=rotate_board2_90(0,0,
 	                    0,1,
-	                    "rotate right",
+	                    "rotate 2x2 board 90",
 	                    0,0,
 	                    1,0);
 	e|=rotate_board2_90(0,0,
 	                    1,0,
-	                    "rotate right",
+	                    "rotate 2x2 board 90",
 	                    1,0,
 	                    0,0);
 	return e;
