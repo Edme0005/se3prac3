@@ -115,12 +115,12 @@ int board3_vector_test(int i1,int i2,int i3,
 int board4_vector_test(int i1, int i2, int i3, int i4,
                        int i5, int i6, int i7, int i8,
                        int i9, int i10,int i11,int i12,
-                       int i13,int i14,int i15,int i16
+                       int i13,int i14,int i15,int i16,
                        char *msg,
                        int o1, int o2, int o3, int o4,
                        int o5, int o6, int o7, int o8,
                        int o9, int o10,int o11,int o12,
-                       int o13,int o14,int o15,int o16
+                       int o13,int o14,int o15,int o16,
                        int (*func)(int,int **))
 {
   int **board=alloca(4*sizeof(int*));
@@ -142,13 +142,13 @@ int board4_vector_test(int i1, int i2, int i3, int i4,
   if (
       (board[0][0]!=o1)||(board[1][0]!=o2)||(board[2][0]!=o3)||(board[3][0]!=o4)||
       (board[0][1]!=o5)||(board[1][1]!=o6)||(board[2][1]!=o7)||(board[3][1]!=o8)||
-      (board[0][2]!=o9)||(board[1][2]!=o10)||(board[2][2]!=o11)||(board[3][2]!=o12||
+      (board[0][2]!=o9)||(board[1][2]!=o10)||(board[2][2]!=o11)||(board[3][2]!=o12)||
       (board[0][3]!=o13)||(board[1][3]!=o14)||(board[2][3]!=o15)||(board[3][3]!=o16)
       )
     {
      printf("FAILED: {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} became {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} instead of"
              " {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}}\n",
-             i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16
+             i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,
              board[0][0],board[1][0],board[2][0],board[3][0],
              board[0][1],board[1][1],board[2][1],board[3][1],
              board[0][2],board[1][2],board[2][2],board[3][2],
