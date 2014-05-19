@@ -68,3 +68,10 @@ int tilt_line_right(int length,int *line) {
 	
 	return 0;
 }
+
+int rotate_board_90(int length, int **board) {
+	
+	
+	
+	return 0;
+}

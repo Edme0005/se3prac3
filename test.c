@@ -36,7 +36,7 @@ int ttr_vector(int i1,int i2,int i3,int i4,char *msg,
   return line_vector_test(i1,i2,i3,i4,msg,o1,o2,o3,o4,tilt_line_right);
 }
 
-int board_vector_test(int i1,int i2,
+int board2_vector_test(int i1,int i2,
                       int i3,int i4,
                       char *msg,
                       int o1,int o2,
@@ -160,6 +160,24 @@ int board4_vector_test(int i1, int i2, int i3, int i4,
   return 0;
 }
 
+int rotate_board2_90((int i1,int i2,
+                      int i3,int i4,
+                      char *msg,
+                      int o1,int o2,
+                      int o3,int o4) 
+{
+	return board2_vector_test(i1,i2,i3,i4,msg,o1,o2,o3,o4,rotate_board_90);
+}
+
+int rotate_board2_270((int i1,int i2,
+                      int i3,int i4,
+                      char *msg,
+                      int o1,int o2,
+                      int o3,int o4) 
+{
+	return board2_vector_test( i1,i2,i3,i4,msg,o1,o2,o3,o4,rotate_board_270);
+}
+
 int test_tilt_left()
 {
   int e=0;
@@ -193,17 +211,44 @@ int test_tilt_right()
   e|=ttr_vector(1,2,2,1,"Combines some.",0,1,4,1);
   e|=ttr_vector(4,2,2,0,"Checks order of adding",0,0,4,4);
   e|=ttr_vector(2,2,2,0,"Checks order of adding",0,0,2,4);
-  e|=ttr_vector(0,0,1,1,"Values are combined on right",0,0,0,1);
+  e|=ttr_vector(0,0,1,1,"Values are combined on right",0,0,0,2);
   e|=ttr_vector(4,0,1,1,"Values combine with correct values",0,0,4,2);
   e|=ttr_vector(2,0,1,1,"Values don't cascade",0,0,2,2);
   e|=ttr_vector(4,4,0,1,"Combines some, shifts 1",0,0,8,1);
   return e;
 }
 
+int test_rotate_90()
+{
+	int e=0;
+	e|=rotate_board2_90(1,0,
+	                    0,0,
+	                    "rotate right",
+	                    0,1,
+	                    0,0);
+	e|=rotate_board2_90(0,1,
+	                    0,0,
+	                    "rotate right",
+	                    0,0,
+	                    0,1);
+	e|=rotate_board2_90(0,0,
+	                    0,1,
+	                    "rotate right",
+	                    0,0,
+	                    1,0);
+	e|=rotate_board2_90(0,0,
+	                    1,0,
+	                    "rotate right",
+	                    1,0,
+	                    0,0);
+	return e;
+}
+
 int main(int argc,char **argv)
 {
   int e=0;
-  e|=test_tilt_left();
-  e|=test_tilt_right();
+  //e|=test_tilt_left();
+  //e|=test_tilt_right();
+  e|=test_rotate_right();
   return e;
 }
