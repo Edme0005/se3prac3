@@ -161,7 +161,7 @@ int board4_vector_test(int i1, int i2, int i3, int i4,
   return 0;
 }
 
-int rotate_board2_90((int i1,int i2,
+int rotate_board2_90(int i1,int i2,
                       int i3,int i4,
                       char *msg,
                       int o1,int o2,
@@ -170,7 +170,7 @@ int rotate_board2_90((int i1,int i2,
 	return board2_vector_test(i1,i2,i3,i4,msg,o1,o2,o3,o4,rotate_board_90);
 }
 
-int rotate_board2_270((int i1,int i2,
+int rotate_board2_270(int i1,int i2,
                       int i3,int i4,
                       char *msg,
                       int o1,int o2,
@@ -222,6 +222,7 @@ int test_tilt_right()
 int test_rotate_90()
 {
 	int e=0;
+	//board of size 2
 	e|=rotate_board2_90(1,0,
 	                    0,0,
 	                    "rotate 2x2 board 90",
@@ -242,6 +243,35 @@ int test_rotate_90()
 	                    "rotate 2x2 board 90",
 	                    1,0,
 	                    0,0);
+	//board of size 3
+	e|=rotate_board3_90(1,0,0,
+	                    0,0,0,
+	                    0,0,0,
+	                    "rotate 3x3 board 90",
+	                    0,0,1,
+	                    0,0,0,
+	                    0,0,0);
+	e|=rotate_board3_90(0,0,1
+	                    0,0,0,
+	                    0,1,0,
+	                    "rotate 3x3 board 90",
+	                    0,0,0,
+	                    1,0,0,
+	                    0,0,1);
+	e|=rotate_board3_90(0,0,0,
+	                    0,1,0,
+	                    0,0,0,
+	                    "rotate 3x3 board 90",
+	                    0,0,0,
+	                    0,1,0,
+	                    0,0,0);
+	e|=rotate_board3_90(0,0,0,
+	                    0,0,0,
+	                    1,1,1,
+	                    "rotate 3x3 board 90",
+	                    1,0,0,
+	                    1,0,0,
+	                    1,0,0);
 	return e;
 }
 
@@ -250,6 +280,6 @@ int main(int argc,char **argv)
   int e=0;
   //e|=test_tilt_left();
   //e|=test_tilt_right();
-  e|=test_rotate_right();
+  e|=test_rotate_90();
   return e;
 }

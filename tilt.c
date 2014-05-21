@@ -93,12 +93,11 @@ int rotate_board_90(int l, int **board) {
 		board[1][0] = temp[1];
 	} else {
 		int s = l-1;
-		int o = 0;
-		int f = 0;
+		int o, f; //for loops
 		int e, b;
 		int temp;
 		//process each level of the square.
-		for(f = 0; f < l; f++) {
+		for(f = 0; f < l/2; f++) {
 			for(o = 0; o < l; o++) {
 				b = f; //beginging
 				e = s-f; //end
@@ -119,6 +118,8 @@ int rotate_board_90(int l, int **board) {
 }
 
 int rotate_board_270(int length, int **board) {
+	//temp till a more efficient one is made.
+	//after the first one is tested.
 	rotate_board_90(length, board);
 	rotate_board_90(length, board);	
 	rotate_board_90(length, board);
