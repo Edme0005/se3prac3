@@ -11,7 +11,7 @@ int tilt_line_left(int length,int *line)
   int i;
   for (i = 0; i < length; i++) {
   	if (line[i] != 0) {
-  		if ( i != next) {
+  		if (i != next) {
   			line[next] = line[i];
   			line[i] = 0;
   		}
@@ -69,20 +69,16 @@ int tilt_line_right(int length,int *line) {
 	return 0;
 }
 
-int rotate_board_90(int length, int **board) {
-	if (length < 2) return -1;
-	//considering the consistancy in which this method will be called,
-	//and that it will in practice only be called on a board of 4x4, or smaller
-	//seemed logical to simply hard code the rotations.
-	//planning for a board larger would be outside the bounds of the applications needs..
-	//but when required would simply only need another else attached to the end.
-	if (length == 2) {
+int rotate_board_90(int l, int **board) {
+	if (l < 2||l > 255) return -1;
+
+	if (l == 2) {
 		int temp = board[0][0];
 		board[0][0] = board[0][1];
 		board[0][1] = board[1][1];
 		board[1][1] = board[1][0];
 		board[1][0] = temp;
-	} else if (length == 3) {
+	} else if (l == 3) {
 		int temp[2];
 		temp[0] = board[0][0];
 		temp[1] = board[0][1];
@@ -95,8 +91,36 @@ int rotate_board_90(int length, int **board) {
 		board[2][1] = board[1][0];
 		board[2][0] = temp[0];
 		board[1][0] = temp[1];
-	} else if (length == 4) {
-		
+	} else {
+		int s = l-1;
+		int o = 0;
+		int f = 0;
+		int e, b;
+		int temp;
+		//process each level of the square.
+		for(f = 0; f < l; f++) {
+			for(o = 0; o < l; o++) {
+				b = f; //beginging
+				e = s-f; //end
+				//w -> t
+				temp = board[b][b+o];
+				//s -> w
+				board[b][b+o] = board[b+o][e]; 
+				//e -> w
+				board[b+o][e] = board[e][e-o]; 
+				//n -> e
+				board[e][e-o] = board[e][b+o];
+				//t -> n
+				board[e][b+o] = temp;        
+			}
+		}
 	}
+	return 0;
+}
+
+int rotate_board_270(int length, int **board) {
+	rotate_board_90(length, board);
+	rotate_board_90(length, board);	
+	rotate_board_90(length, board);
 	return 0;
 }
