@@ -8,10 +8,10 @@ tilts the tiles in a direction, joining tiles of the same value.
 The goal of this plan is to test the functionality of the program, ensuring the game works correctly.
 
 The methods used by the game are: 
-- rotate board 90.
-- tilt left.
+* rotate board 90.
+* tilt left.
 
-These are uses in conjunction to perform the task of shifting tiles in the require direction.
+These are used in conjunction to perform the task of shifting tiles in the required direction.
 
 Attributes
 ----------
@@ -21,6 +21,13 @@ This is a game in which the tiles moving should appear instantly, any delay is t
 
 Components
 ----------
+This is a list of major code parts.
+* Board[][] array.
+* tilt_left
+* rotate_90
+
+Capabilities 
+------------
 The componants needing testing are:
 * tilt up
 * tilt right
@@ -28,5 +35,6 @@ The componants needing testing are:
 * tilt left
 * spawn new tile
 
-
-
+Conclusion
+----------
+not sure
