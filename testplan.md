@@ -19,3 +19,14 @@ The attributes being tested will be to ensure that the task is performed within 
 
 This is a game in which the tiles moving should appear instantly, any delay is to long.
 
+Components
+----------
+The componants needing testing are:
+* tilt up
+* tilt right
+* tilt down
+* tilt left
+* spawn new tile
+
+
+
