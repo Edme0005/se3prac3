@@ -179,6 +179,17 @@ int rotate_board2_270(int i1,int i2,
 	return board2_vector_test( i1,i2,i3,i4,msg,o1,o2,o3,o4,rotate_board_270);
 }
 
+int rotate_board3_90(int i1,int i2,int i3,
+                       int i4,int i5,int i6,
+                       int i7,int i8,int i9,
+                       char *msg,
+                       int o1,int o2,int o3,
+                       int o4,int o5,int o6,
+                       int o7,int o8,int o9)
+{
+	return board3_vector_test(i1,i2,i3,i4,i5,i6,i7,i8,i9,msg,o1,o2,o3,o4,o5,o6,o7,o8,o9,rotate_board_90);
+}
+
 int test_tilt_left()
 {
   int e=0;
@@ -251,7 +262,7 @@ int test_rotate_90()
 	                    0,0,1,
 	                    0,0,0,
 	                    0,0,0);
-	e|=rotate_board3_90(0,0,1
+	e|=rotate_board3_90(0,0,1,
 	                    0,0,0,
 	                    0,1,0,
 	                    "rotate 3x3 board 90",
