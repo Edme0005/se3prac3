@@ -71,7 +71,7 @@ int tilt_line_right(int length,int *line) {
 
 int rotate_board_90(int l, int **board) {
 	if (l < 2||l > 255) return -1;
-
+	/*
 	if (l == 2) {
 		int temp = board[0][0];
 		board[0][0] = board[0][1];
@@ -92,13 +92,14 @@ int rotate_board_90(int l, int **board) {
 		board[2][0] = temp[0];
 		board[1][0] = temp[1];
 	} else {
+	*/
 		int s = l-1;
 		int o, f; //for loops
 		int e, b;
 		int temp;
 		//process each level of the square.
 		for(f = 0; f < l/2; f++) {
-			for(o = 0; o < (l/2)-f; o++) {
+			for(o = 0; o < ((l-f)/2); o++) {
 				b = f; //beginging
 				e = s-f; //end
 				//w -> t
@@ -113,7 +114,7 @@ int rotate_board_90(int l, int **board) {
 				board[e][b+o] = temp;        
 			}
 		}
-	}
+	//}
 	return 0;
 }
 
