@@ -147,8 +147,8 @@ int board4_vector_test(int i1, int i2, int i3, int i4,
       (board[0][3]!=o13)||(board[1][3]!=o14)||(board[2][3]!=o15)||(board[3][3]!=o16)
       )
     {
-     printf("FAILED: {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} became {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} instead of"
-             " {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}}\n",
+     printf("FAILED: {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} became {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} instead of"
+             " {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}}\n",
              i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,
              board[0][0],board[1][0],board[2][0],board[3][0],
              board[0][1],board[1][1],board[2][1],board[3][1],
@@ -188,6 +188,19 @@ int rotate_board3_90(int i1,int i2,int i3,
                        int o7,int o8,int o9)
 {
 	return board3_vector_test(i1,i2,i3,i4,i5,i6,i7,i8,i9,msg,o1,o2,o3,o4,o5,o6,o7,o8,o9,rotate_board_90);
+}
+
+int rotate_board4_90(int i1, int i2, int i3, int i4,
+                       int i5, int i6, int i7, int i8,
+                       int i9, int i10,int i11,int i12,
+                       int i13,int i14,int i15,int i16,
+                       char *msg,
+                       int o1, int o2, int o3, int o4,
+                       int o5, int o6, int o7, int o8,
+                       int o9, int o10,int o11,int o12,
+                       int o13,int o14,int o15,int o16)
+{
+	return board4_vector_test(i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,msg,o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11,o12,o13,o14,o15,o16,rotate_board_90);
 }
 
 int test_tilt_left()
@@ -283,6 +296,43 @@ int test_rotate_90()
 	                    1,0,0,
 	                    1,0,0,
 	                    1,0,0);
+	//board of size 4
+	e|=rotate_board4_90(1,0,0,0,
+	                    0,0,0,0,
+	                    0,0,0,0,
+	                    0,0,0,0,
+	                    "rotate 4x4 board 90",
+	                    0,0,0,1,
+	                    0,0,0,0,
+	                    0,0,0,0,
+	                    0,0,0,0);
+	e|=rotate_board4_90(1,0,0,0,
+	                    0,0,1,0,
+	                    0,0,0,0,
+	                    0,0,0,0,
+	                    "rotate 4x4 board 90",
+	                    0,0,0,1,
+	                    0,0,0,0,
+	                    0,0,1,0,
+	                    0,0,0,0);
+	e|=rotate_board4_90(1,0,0,0,
+	                    0,0,0,0,
+	                    0,0,0,0,
+	                    0,0,0,1,
+	                    "rotate 4x4 board 90",
+	                    0,0,0,1,
+	                    0,0,0,0,
+	                    0,0,0,0,
+	                    1,0,0,0);
+	e|=rotate_board4_90(1,0,0,2,
+	                    0,1,2,0,
+	                    0,4,3,0,
+	                    4,0,0,3,
+	                    "rotate 4x4 board 90",
+	                    4,0,0,1,
+	                    0,4,1,0,
+	                    0,3,2,0,
+	                    3,0,0,2);
 	return e;
 }
 

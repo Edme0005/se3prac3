@@ -98,7 +98,7 @@ int rotate_board_90(int l, int **board) {
 		int temp;
 		//process each level of the square.
 		for(f = 0; f < l/2; f++) {
-			for(o = 0; o < l-f; o++) {
+			for(o = 0; o < (l/2)-f; o++) {
 				b = f; //beginging
 				e = s-f; //end
 				//w -> t
