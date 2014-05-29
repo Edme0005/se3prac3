@@ -71,50 +71,28 @@ int tilt_line_right(int length,int *line) {
 
 int rotate_board_90(int l, int **board) {
 	if (l < 2||l > 255) return -1;
-	/*
-	if (l == 2) {
-		int temp = board[0][0];
-		board[0][0] = board[0][1];
-		board[0][1] = board[1][1];
-		board[1][1] = board[1][0];
-		board[1][0] = temp;
-	} else if (l == 3) {
-		int temp[2];
-		temp[0] = board[0][0];
-		temp[1] = board[0][1];
-		
-		board[0][0] = board[0][2];
-		board[0][1] = board[1][2];
-		board[0][2] = board[2][2];
-		board[1][2] = board[2][1];
-		board[2][2] = board[2][0];
-		board[2][1] = board[1][0];
-		board[2][0] = temp[0];
-		board[1][0] = temp[1];
-	} else {
-	*/
-		int s = l-1;
-		int o, f; //for loops
-		int e, b;
-		int temp;
-		//process each level of the square.
-		for(f = 0; f < l/2; f++) {
-			for(o = 0; o < ((l-f)/2); o++) {
-				b = f; //beginging
-				e = s-f; //end
-				//w -> t
-				temp = board[b][b+o];
-				//s -> w
-				board[b][b+o] = board[b+o][e]; 
-				//e -> w
-				board[b+o][e] = board[e][e-o]; 
-				//n -> e
-				board[e][e-o] = board[e][b+o];
-				//t -> n
-				board[e][b+o] = temp;        
-			}
+	
+	int s = l-1;
+	int o, f; //for loops
+	int e, b;
+	int temp;
+	//process each level of the square.
+	for(f = 0; f < l/2; f++) { 
+		for(o = f; o < s-f; o++) { 
+			b = f;
+			e = s-f; 
+			//w -> t
+			temp = board[b][b+o];
+			//s -> w
+			board[b][b+o] = board[b+o][e];
+			//e -> w
+			board[b+o][e] = board[e][e-o];
+			//n -> e
+			board[e][e-o] = board[e-o][b];
+			//t -> n
+			board[e-o][b] = temp;
 		}
-	//}
+	}
 	return 0;
 }
 
