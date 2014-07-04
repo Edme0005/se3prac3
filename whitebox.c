@@ -8,21 +8,21 @@ int test_tilt(int (*func)(int,int *)) {
 	for (i = 0; i < 255; i++)
 		longLine[i] = 0;
 
-  	printf("Tilt line, line size 0: [%s]", (func(0, shortLine) ? "Pass" : "Fail"));
-  	printf("Tilt line, line size 1: [%s]", (!func(1, shortLine) ? "Pass" : "Fail"));
-  	printf("Tilt line, line size 255: [%s]", (!func(255, longLine) ? "Pass" : "Fail"));
-  	printf("Tilt line, line size 256: [%s]", (func(256, longLine) ? "Pass" : "Fail"));
-  	
+  	printf("Tilt line, line size 0: [%s]\n", (func(0, shortLine) ? "Pass" : "Fail"));
+  	printf("Tilt line, line size 1: [%s]\n", (!func(1, shortLine) ? "Pass" : "Fail"));
+  	printf("Tilt line, line size 255: [%s]\n", (!func(255, longLine) ? "Pass" : "Fail"));
+  	printf("Tilt line, line size 256: [%s]\n", (func(256, longLine) ? "Pass" : "Fail"));
+
 	return 1;
 }
 
 int test_tilt_left() {
-	printf("Testing tilt left");
+	printf("Testing tilt left\n");
 	return test_tilt(tilt_line_left);
 }
 
 int test_tilt_right() {
-	printf("Testing tilt right");
+	printf("Testing tilt right\n");
 	return test_tilt(tilt_line_right);
 }
 
@@ -43,11 +43,11 @@ int test_board_rotate() {
   		}
   	}
 
-  	printf("Testing rotate_board_90");
-  	printf("Rotate board 90, board size 1: [%s]", (rotate_board_90(1, twoBoard) ? "Pass" : "Fail"));
-  	printf("Rotate board 90, board size 2: [%s]", (!rotate_board_90(2, twoBoard) ? "Pass" : "Fail"));
-  	printf("Rotate board 90, board size 255: [%s]", (!rotate_board_90(255, largeBoard) ? "Pass" : "Fail"));
-  	printf("Rotate board 90, board size 256: [%s]", (rotate_board_90(256, largeBoard) ? "Pass" : "Fail"));
+  	printf("Testing rotate_board_90\n");
+  	printf("Rotate board 90, board size 1: [%s]\n", (rotate_board_90(1, twoBoard) ? "Pass" : "Fail"));
+  	printf("Rotate board 90, board size 2: [%s]\n", (!rotate_board_90(2, twoBoard) ? "Pass" : "Fail"));
+  	printf("Rotate board 90, board size 255: [%s]\n", (!rotate_board_90(255, largeBoard) ? "Pass" : "Fail"));
+  	printf("Rotate board 90, board size 256: [%s]\n", (rotate_board_90(256, largeBoard) ? "Pass" : "Fail"));
   	return 1;
 }
 
@@ -55,4 +55,6 @@ int main() {
 	test_tilt_left();
 	test_tilt_right();
 	test_board_rotate();
+
+	return 1;
 }
